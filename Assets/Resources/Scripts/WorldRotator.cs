@@ -9,6 +9,8 @@ public class WorldRotator : MonoBehaviour
     private Quaternion _prevHead;
     private GameObject _cameraRig;
     private GameObject _canvas;
+    [SerializeField]
+    private GameObject _cameraHead;
     private bool _isNearWall;
     private bool _wasNearWall;
     private GameObject _meter;
@@ -46,8 +48,7 @@ public class WorldRotator : MonoBehaviour
         }
 
         UnityEngine.Time.timeScale = _timeScale;
-        GameObject cameraHead = GameObject.Find("Camera (head)");
-        cameraHead.GetComponent<AudioSource>().pitch = _timeScale / 200.0f + 0.5f;
+        _cameraHead.GetComponent<AudioSource>().pitch = _timeScale / 200.0f + 0.5f;
     }
 
 
@@ -101,7 +102,8 @@ public class WorldRotator : MonoBehaviour
         {
             // Calculate the player's current distance relative to the maximum wall to wall distance
             float percentToWall = hitInfo.distance / 3.0f;
-            int deviceIndex = (int)this.GetComponent<SteamVR_TrackedObject>().index;
+            Debug.Log(percentToWall);
+            int deviceIndex = (int)_cameraHead.GetComponent<SteamVR_TrackedObject>().index;
             float angVel = SteamVR_Controller.Input(deviceIndex).angularVelocity.magnitude;
             float vel = SteamVR_Controller.Input(deviceIndex).velocity.magnitude;
             

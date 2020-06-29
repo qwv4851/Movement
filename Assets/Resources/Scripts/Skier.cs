@@ -7,12 +7,12 @@ public class Skier : MonoBehaviour
     public float outOfBoundsHeight = -80.0f;
 
     private Vector3 _startPos;
+    [SerializeField]
     private GameObject _cameraHead;
 
     void Start ()
     {
         _startPos = this.transform.position;
-        _cameraHead = GameObject.Find("Camera (head)");
     }
 	
 	void FixedUpdate ()

@@ -6,12 +6,12 @@ public class HallwayController : MonoBehaviour {
     public float distanceThreshold = 1.0f;
 
     private float _startAngle;
+    [SerializeField]
     private Transform _headTransform;
     private Quaternion _startRotation;
     private Vector3 _prevPos;
 
 	void Start () {
-        _headTransform = this.transform.FindChild("Camera (head)");
         _startAngle = CalculateWorldAngle(_headTransform.localPosition, this.transform.position);
         _startRotation = this.transform.rotation;
         _prevPos = _headTransform.position;

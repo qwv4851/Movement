@@ -1,15 +1,16 @@
-﻿//========= Copyright 2014, Valve Corporation, All rights reserved. ===========
+﻿//======= Copyright (c) Valve Corporation, All rights reserved. ===============
 //
 // Purpose: Helper to display various hmd stats via GUIText
 //
 //=============================================================================
 
 using UnityEngine;
+using UnityEngine.UI;
 using Valve.VR;
 
 public class SteamVR_Stats : MonoBehaviour
 {
-	public GUIText text;
+	public Text text;
 
 	public Color fadeColor = Color.black;
 	public float fadeDuration = 1.0f;
@@ -18,7 +19,7 @@ public class SteamVR_Stats : MonoBehaviour
 	{
 		if (text == null)
 		{
-			text = GetComponent<GUIText>();
+			text = GetComponent<Text>();
 			text.enabled = false;
 		}
 
